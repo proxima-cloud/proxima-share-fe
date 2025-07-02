@@ -1,0 +1,224 @@
+{
+  "nav": {
+    "home": "Home",
+    "features": "Features",
+    "about": "About",
+    "privacy": "Privacy"
+  },
+  "hero": {
+    "title": "Share Files with Confidence",
+    "subtitle": "Secure, fast, and beautiful file sharing with advanced privacy controls and seamless user experience.",
+    "scrollDown": "Scroll to explore",
+    "features": {
+      "security": {
+        "title": "Bank-level Security",
+        "description": "End-to-end encryption and advanced security protocols protect your files."
+      },
+      "speed": {
+        "title": "Lightning Fast",
+        "description": "Optimized servers and smart caching deliver blazing-fast upload and download speeds."
+      },
+      "global": {
+        "title": "Global Access",
+        "description": "Available worldwide with multi-language support and local compliance."
+      }
+    }
+  },
+  "upload": {
+    "title": "Drop your files here",
+    "dropFiles": "Release to upload",
+    "description": "Drag and drop your files or click to browse. We support images, documents, and more.",
+    "browse": "Browse Files",
+    "maxSize": "Maximum file size: 10MB",
+    "uploading": "Uploading...",
+    "completed": "Upload complete",
+    "error": "Upload failed",
+    "fileSizeError": "File size exceeds 10MB limit",
+    "shareFile": "File uploaded successfully! Share your file:",
+    "copyLink": "Copy link to clipboard",
+    "shareEmail": "Share via email",
+    "openLink": "Open download link",
+    "copy": "Copy",
+    "email": "Email",
+    "open": "Open",
+    "linkExpiration": {
+      "title": "Link expires automatically:",
+      "timeLimit": "After 5 minutes",
+      "downloadLimit": "After 3 successful downloads"
+    }
+  },
+  "about": {
+    "title": "About ProximaShare",
+    "subtitle": "We're on a mission to make file sharing simple, secure, and accessible to everyone around the world.",
+    "mission": {
+      "title": "Our Mission",
+      "description1": "ProximaShare was born from the belief that sharing files should be effortless, secure, and respect your privacy. In a world where data breaches and privacy concerns are increasingly common, we've built a platform that puts security and user control at the forefront.",
+      "description2": "Our team of security experts and developers work tirelessly to ensure that every file you share is protected with bank-level encryption, while maintaining the simplicity and speed you expect from modern file sharing.",
+      "description3": "Whether you're a business professional sharing sensitive documents, a creative sharing your latest work, or simply someone who wants to send files to friends and family, ProximaShare provides the tools you need with the security you deserve."
+    },
+    "features": {
+      "security": {
+        "title": "Advanced Security",
+        "description": "Military-grade encryption protects your files from unauthorized access."
+      },
+      "speed": {
+        "title": "Blazing Fast",
+        "description": "Optimized infrastructure ensures rapid uploads and downloads worldwide."
+      },
+      "global": {
+        "title": "Global Reach",
+        "description": "Available in multiple languages with servers around the world."
+      },
+      "community": {
+        "title": "Community Driven",
+        "description": "Built with feedback from users who value privacy and simplicity."
+      },
+      "privacy": {
+        "title": "Privacy First",
+        "description": "Your data is yours. We don't store, scan, or analyze your files."
+      },
+      "quality": {
+        "title": "Quality Assured",
+        "description": "Rigorous testing ensures reliability and performance you can trust."
+      }
+    },
+    "cta": {
+      "title": "Ready to Share Securely?",
+      "description": "Join thousands of users who trust ProximaShare for their file sharing needs.",
+      "button": "Start Sharing"
+    }
+  },
+  "features": {
+    "title": "Powerful Features",
+    "subtitle": "Everything you need for secure, efficient file sharing in one beautiful platform.",
+    "main": {
+      "security": {
+        "title": "Enterprise Security",
+        "description": "Your files are protected with AES-256 encryption, the same standard used by banks and government agencies. Every upload is secured from the moment it leaves your device."
+      },
+      "speed": {
+        "title": "Lightning Performance",
+        "description": "Our global CDN and optimized infrastructure ensure your files upload and download at maximum speed, regardless of your location."
+      },
+      "global": {
+        "title": "Worldwide Access",
+        "description": "Access your shared files from anywhere in the world with our globally distributed servers and multi-language support."
+      }
+    },
+    "detailed": {
+      "title": "Advanced Capabilities",
+      "encryption": {
+        "title": "End-to-End Encryption",
+        "description": "Files are encrypted on your device before upload and remain encrypted until download."
+      },
+      "download": {
+        "title": "Smart Download Limits",
+        "description": "Control how many times your files can be downloaded for enhanced security."
+      },
+      "sharing": {
+        "title": "Flexible Sharing",
+        "description": "Share via direct links, email, or generate QR codes for easy mobile access."
+      },
+      "expiration": {
+        "title": "Auto Expiration",
+        "description": "Links automatically expire after a set time or number of downloads."
+      },
+      "collaboration": {
+        "title": "Team Collaboration",
+        "description": "Share files with teams and track who has accessed your content."
+      }
+    }
+  },
+  "privacy": {
+    "title": "Privacy Policy",
+    "subtitle": "Your privacy is our priority. Learn how we protect and handle your data with complete transparency.",
+    "principles": {
+      "protection": {
+        "title": "Data Protection",
+        "description": "We implement industry-leading security measures to protect your personal information."
+      },
+      "transparency": {
+        "title": "Full Transparency",
+        "description": "We clearly explain what data we collect, how we use it, and who we share it with."
+      },
+      "security": {
+        "title": "Advanced Security",
+        "description": "Your files are encrypted and stored securely with multiple layers of protection."
+      },
+      "deletion": {
+        "title": "Automatic Deletion",
+        "description": "Files are automatically deleted after expiration with no recovery possible."
+      },
+      "minimal": {
+        "title": "Minimal Data Collection",
+        "description": "We only collect the minimum data necessary to provide our service."
+      },
+      "compliance": {
+        "title": "Global Compliance",
+        "description": "We comply with GDPR, CCPA, and other international privacy regulations."
+      }
+    },
+    "policy": {
+      "dataCollection": {
+        "title": "Data Collection",
+        "description": "We collect only the minimum information necessary to provide our file sharing service:",
+        "item1": "File metadata (name, size, type) for upload processing",
+        "item2": "IP address for security and abuse prevention",
+        "item3": "Browser information for compatibility and optimization"
+      },
+      "dataUsage": {
+        "title": "How We Use Your Data",
+        "description": "Your data is used solely to provide and improve our file sharing service. We never sell, rent, or share your personal information with third parties for marketing purposes."
+      },
+      "dataRetention": {
+        "title": "Data Retention",
+        "description": "Files are automatically deleted after 5 minutes or 3 downloads, whichever comes first. Metadata is retained for 30 days for security purposes, then permanently deleted."
+      },
+      "userRights": {
+        "title": "Your Rights",
+        "description": "Under GDPR and other privacy laws, you have the following rights:",
+        "right1": "Right to access your personal data",
+        "right2": "Right to rectify inaccurate data",
+        "right3": "Right to erasure (right to be forgotten)",
+        "right4": "Right to data portability"
+      }
+    },
+    "contact": {
+      "title": "Questions About Privacy?",
+      "description": "If you have any questions about our privacy practices, please don't hesitate to contact us.",
+      "button": "Contact Privacy Team"
+    }
+  },
+  "privacy": {
+    "cookies": {
+      "title": "We value your privacy",
+      "description": "We use cookies to enhance your experience and analyze our traffic. You can customize your preferences below.",
+      "acceptAll": "Accept All",
+      "rejectAll": "Reject All",
+      "customize": "Customize",
+      "settings": "Cookie Settings",
+      "savePreferences": "Save Preferences",
+      "types": {
+        "necessary": {
+          "title": "Necessary",
+          "description": "Required for the website to function properly. Cannot be disabled."
+        },
+        "analytics": {
+          "title": "Analytics",
+          "description": "Help us understand how visitors interact with our website."
+        },
+        "marketing": {
+          "title": "Marketing",
+          "description": "Used to deliver personalized content and advertisements."
+        },
+        "functional": {
+          "title": "Functional",
+          "description": "Enable enhanced functionality and personalization."
+        }
+      }
+    }
+  },
+  "preloader": {
+    "welcome": "Welcome to ProximaShare"
+  }
+}

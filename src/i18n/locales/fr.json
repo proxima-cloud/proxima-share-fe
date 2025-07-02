@@ -1,0 +1,222 @@
+{
+  "nav": {
+    "home": "Accueil",
+    "features": "Fonctionnalités",
+    "about": "À propos",
+    "privacy": "Confidentialité"
+  },
+  "hero": {
+    "title": "Partagez des fichiers en toute confiance",
+    "subtitle": "Partage de fichiers sécurisé, rapide et élégant avec des contrôles de confidentialité avancés et une expérience utilisateur fluide.",
+    "scrollDown": "Faites défiler pour explorer",
+    "features": {
+      "security": {
+        "title": "Sécurité bancaire",
+        "description": "Le chiffrement de bout en bout et les protocoles de sécurité avancés protègent vos fichiers."
+      },
+      "speed": {
+        "title": "Ultra rapide",
+        "description": "Des serveurs optimisés et une mise en cache intelligente offrent des vitesses de téléchargement ultra-rapides."
+      },
+      "global": {
+        "title": "Accès mondial",
+        "description": "Disponible dans le monde entier avec support multilingue et conformité locale."
+      }
+    }
+  },
+  "upload": {
+    "title": "Déposez vos fichiers ici",
+    "dropFiles": "Relâchez pour télécharger",
+    "description": "Glissez-déposez vos fichiers ou cliquez pour parcourir. Nous prenons en charge les images, documents et plus encore.",
+    "browse": "Parcourir les fichiers",
+    "maxSize": "Taille maximale du fichier : 10 Mo",
+    "uploading": "Téléchargement...",
+    "completed": "Téléchargement terminé",
+    "error": "Échec du téléchargement",
+    "fileSizeError": "La taille du fichier dépasse la limite de 10 Mo",
+    "shareFile": "Fichier téléchargé avec succès ! Partagez votre fichier :",
+    "copyLink": "Copier le lien dans le presse-papiers",
+    "shareEmail": "Partager par email",
+    "openLink": "Ouvrir le lien de téléchargement",
+    "copy": "Copier",
+    "email": "Email",
+    "open": "Ouvrir",
+    "linkExpiration": {
+      "title": "Le lien expire automatiquement :",
+      "timeLimit": "Après 5 minutes",
+      "downloadLimit": "Après 3 téléchargements réussis"
+    }
+  },
+  "about": {
+    "title": "À propos de ProximaShare",
+    "subtitle": "Notre mission est de rendre le partage de fichiers simple, sécurisé et accessible à tous dans le monde entier.",
+    "mission": {
+      "title": "Notre Mission",
+      "description1": "ProximaShare est né de la conviction que le partage de fichiers devrait être sans effort, sécurisé et respecter votre vie privée.",
+      "description2": "Notre équipe d'experts en sécurité et de développeurs travaille sans relâche pour s'assurer que chaque fichier que vous partagez est protégé.",
+      "description3": "Que vous soyez un professionnel partageant des documents sensibles ou simplement quelqu'un qui veut envoyer des fichiers, ProximaShare fournit les outils dont vous avez besoin."
+    },
+    "features": {
+      "security": {
+        "title": "Sécurité Avancée",
+        "description": "Le chiffrement de niveau militaire protège vos fichiers contre l'accès non autorisé."
+      },
+      "speed": {
+        "title": "Ultra Rapide",
+        "description": "Une infrastructure optimisée garantit des téléchargements rapides dans le monde entier."
+      },
+      "global": {
+        "title": "Portée Mondiale",
+        "description": "Disponible en plusieurs langues avec des serveurs dans le monde entier."
+      },
+      "community": {
+        "title": "Communauté",
+        "description": "Construit avec les commentaires d'utilisateurs qui valorisent la confidentialité et la simplicité."
+      },
+      "privacy": {
+        "title": "Confidentialité d'Abord",
+        "description": "Vos données vous appartiennent. Nous ne stockons, ne scannons ni n'analysons vos fichiers."
+      },
+      "quality": {
+        "title": "Qualité Assurée",
+        "description": "Des tests rigoureux garantissent la fiabilité et les performances sur lesquelles vous pouvez compter."
+      }
+    },
+    "cta": {
+      "title": "Prêt à Partager en Sécurité ?",
+      "description": "Rejoignez des milliers d'utilisateurs qui font confiance à ProximaShare pour leurs besoins de partage de fichiers.",
+      "button": "Commencer à Partager"
+    }
+  },
+  "features": {
+    "title": "Fonctionnalités Puissantes",
+    "subtitle": "Tout ce dont vous avez besoin pour un partage de fichiers sécurisé et efficace dans une plateforme magnifique.",
+    "main": {
+      "security": {
+        "title": "Sécurité Entreprise",
+        "description": "Vos fichiers sont protégés avec le chiffrement AES-256, la même norme utilisée par les banques et les agences gouvernementales."
+      },
+      "speed": {
+        "title": "Performance Éclair",
+        "description": "Notre CDN mondial et notre infrastructure optimisée garantissent que vos fichiers se téléchargent à vitesse maximale."
+      },
+      "global": {
+        "title": "Accès Mondial",
+        "description": "Accédez à vos fichiers partagés depuis n'importe où dans le monde avec nos serveurs distribués globalement."
+      }
+    },
+    "detailed": {
+      "title": "Capacités Avancées",
+      "encryption": {
+        "title": "Chiffrement de Bout en Bout",
+        "description": "Les fichiers sont chiffrés sur votre appareil avant le téléchargement et restent chiffrés jusqu'au téléchargement."
+      },
+      "download": {
+        "title": "Limites de Téléchargement Intelligentes",
+        "description": "Contrôlez combien de fois vos fichiers peuvent être téléchargés pour une sécurité renforcée."
+      },
+      "sharing": {
+        "title": "Partage Flexible",
+        "description": "Partagez via des liens directs, email, ou générez des codes QR pour un accès mobile facile."
+      },
+      "expiration": {
+        "title": "Expiration Automatique",
+        "description": "Les liens expirent automatiquement après un temps défini ou un nombre de téléchargements."
+      },
+      "collaboration": {
+        "title": "Collaboration d'Équipe",
+        "description": "Partagez des fichiers avec des équipes et suivez qui a accédé à votre contenu."
+      }
+    }
+  },
+  "privacy": {
+    "title": "Politique de Confidentialité",
+    "subtitle": "Votre confidentialité est notre priorité. Découvrez comment nous protégeons et gérons vos données en toute transparence.",
+    "principles": {
+      "protection": {
+        "title": "Protection des Données",
+        "description": "Nous mettons en œuvre des mesures de sécurité de pointe pour protéger vos informations personnelles."
+      },
+      "transparency": {
+        "title": "Transparence Totale",
+        "description": "Nous expliquons clairement quelles données nous collectons, comment nous les utilisons et avec qui nous les partageons."
+      },
+      "security": {
+        "title": "Sécurité Avancée",
+        "description": "Vos fichiers sont chiffrés et stockés en sécurité avec plusieurs couches de protection."
+      },
+      "deletion": {
+        "title": "Suppression Automatique",
+        "description": "Les fichiers sont automatiquement supprimés après expiration sans possibilité de récupération."
+      },
+      "minimal": {
+        "title": "Collecte de Données Minimale",
+        "description": "Nous ne collectons que les données minimales nécessaires pour fournir notre service."
+      },
+      "compliance": {
+        "title": "Conformité Mondiale",
+        "description": "Nous nous conformons au RGPD, CCPA et autres réglementations internationales de confidentialité."
+      }
+    },
+    "policy": {
+      "dataCollection": {
+        "title": "Collecte de Données",
+        "description": "Nous ne collectons que les informations minimales nécessaires pour fournir notre service de partage de fichiers :",
+        "item1": "Métadonnées de fichier (nom, taille, type) pour le traitement du téléchargement",
+        "item2": "Adresse IP pour la sécurité et la prévention des abus",
+        "item3": "Informations du navigateur pour la compatibilité et l'optimisation"
+      },
+      "dataUsage": {
+        "title": "Comment Nous Utilisons Vos Données",
+        "description": "Vos données sont utilisées uniquement pour fournir et améliorer notre service de partage de fichiers. Nous ne vendons, ne louons ni ne partageons jamais vos informations personnelles avec des tiers à des fins de marketing."
+      },
+      "dataRetention": {
+        "title": "Conservation des Données",
+        "description": "Les fichiers sont automatiquement supprimés après 5 minutes ou 3 téléchargements, selon la première éventualité. Les métadonnées sont conservées pendant 30 jours à des fins de sécurité, puis supprimées définitivement."
+      },
+      "userRights": {
+        "title": "Vos Droits",
+        "description": "Sous le RGPD et autres lois sur la confidentialité, vous avez les droits suivants :",
+        "right1": "Droit d'accéder à vos données personnelles",
+        "right2": "Droit de rectifier les données inexactes",
+        "right3": "Droit à l'effacement (droit à l'oubli)",
+        "right4": "Droit à la portabilité des données"
+      }
+    },
+    "contact": {
+      "title": "Questions sur la Confidentialité ?",
+      "description": "Si vous avez des questions sur nos pratiques de confidentialité, n'hésitez pas à nous contacter.",
+      "button": "Contacter l'Équipe Confidentialité"
+    },
+    "cookies": {
+      "title": "Nous respectons votre vie privée",
+      "description": "Nous utilisons des cookies pour améliorer votre expérience et analyser notre trafic. Vous pouvez personnaliser vos préférences ci-dessous.",
+      "acceptAll": "Tout accepter",
+      "rejectAll": "Tout rejeter",
+      "customize": "Personnaliser",
+      "settings": "Paramètres des cookies",
+      "savePreferences": "Enregistrer les préférences",
+      "types": {
+        "necessary": {
+          "title": "Nécessaires",
+          "description": "Requis pour le bon fonctionnement du site web. Ne peut pas être désactivé."
+        },
+        "analytics": {
+          "title": "Analytiques",
+          "description": "Nous aident à comprendre comment les visiteurs interagissent avec notre site web."
+        },
+        "marketing": {
+          "title": "Marketing",
+          "description": "Utilisés pour diffuser du contenu et des publicités personnalisés."
+        },
+        "functional": {
+          "title": "Fonctionnels",
+          "description": "Activent des fonctionnalités améliorées et la personnalisation."
+        }
+      }
+    }
+  },
+  "preloader": {
+    "welcome": "Bienvenue sur ProximaShare"
+  }
+}

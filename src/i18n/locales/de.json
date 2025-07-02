@@ -1,0 +1,222 @@
+{
+  "nav": {
+    "home": "Startseite",
+    "features": "Funktionen",
+    "about": "Über uns",
+    "privacy": "Datenschutz"
+  },
+  "hero": {
+    "title": "Dateien mit Vertrauen teilen",
+    "subtitle": "Sicheres, schnelles und schönes Dateiteilen mit erweiterten Datenschutzkontrollen und nahtloser Benutzererfahrung.",
+    "scrollDown": "Scrollen Sie zum Erkunden",
+    "features": {
+      "security": {
+        "title": "Bank-Level-Sicherheit",
+        "description": "Ende-zu-Ende-Verschlüsselung und erweiterte Sicherheitsprotokolle schützen Ihre Dateien."
+      },
+      "speed": {
+        "title": "Blitzschnell",
+        "description": "Optimierte Server und intelligentes Caching bieten blitzschnelle Upload- und Download-Geschwindigkeiten."
+      },
+      "global": {
+        "title": "Globaler Zugang",
+        "description": "Weltweit verfügbar mit mehrsprachiger Unterstützung und lokaler Compliance."
+      }
+    }
+  },
+  "upload": {
+    "title": "Dateien hier ablegen",
+    "dropFiles": "Loslassen zum Hochladen",
+    "description": "Ziehen Sie Ihre Dateien hierher oder klicken Sie zum Durchsuchen. Wir unterstützen Bilder, Dokumente und mehr.",
+    "browse": "Dateien durchsuchen",
+    "maxSize": "Maximale Dateigröße: 10MB",
+    "uploading": "Hochladen...",
+    "completed": "Upload abgeschlossen",
+    "error": "Upload fehlgeschlagen",
+    "fileSizeError": "Dateigröße überschreitet das 10MB-Limit",
+    "shareFile": "Datei erfolgreich hochgeladen! Teilen Sie Ihre Datei:",
+    "copyLink": "Link in Zwischenablage kopieren",
+    "shareEmail": "Per E-Mail teilen",
+    "openLink": "Download-Link öffnen",
+    "copy": "Kopieren",
+    "email": "E-Mail",
+    "open": "Öffnen",
+    "linkExpiration": {
+      "title": "Link läuft automatisch ab:",
+      "timeLimit": "Nach 5 Minuten",
+      "downloadLimit": "Nach 3 erfolgreichen Downloads"
+    }
+  },
+  "about": {
+    "title": "Über ProximaShare",
+    "subtitle": "Wir haben es uns zur Aufgabe gemacht, das Teilen von Dateien einfach, sicher und für alle auf der Welt zugänglich zu machen.",
+    "mission": {
+      "title": "Unsere Mission",
+      "description1": "ProximaShare entstand aus der Überzeugung, dass das Teilen von Dateien mühelos, sicher und respektvoll gegenüber Ihrer Privatsphäre sein sollte.",
+      "description2": "Unser Team aus Sicherheitsexperten und Entwicklern arbeitet unermüdlich daran, sicherzustellen, dass jede Datei, die Sie teilen, geschützt ist.",
+      "description3": "Ob Sie ein Geschäftsprofi sind, der sensible Dokumente teilt, oder einfach jemand, der Dateien senden möchte, ProximaShare bietet die Werkzeuge, die Sie benötigen."
+    },
+    "features": {
+      "security": {
+        "title": "Erweiterte Sicherheit",
+        "description": "Verschlüsselung auf Militärniveau schützt Ihre Dateien vor unbefugtem Zugriff."
+      },
+      "speed": {
+        "title": "Blitzschnell",
+        "description": "Optimierte Infrastruktur gewährleistet schnelle Uploads und Downloads weltweit."
+      },
+      "global": {
+        "title": "Globale Reichweite",
+        "description": "Verfügbar in mehreren Sprachen mit Servern auf der ganzen Welt."
+      },
+      "community": {
+        "title": "Community-getrieben",
+        "description": "Erstellt mit Feedback von Benutzern, die Privatsphäre und Einfachheit schätzen."
+      },
+      "privacy": {
+        "title": "Privatsphäre zuerst",
+        "description": "Ihre Daten gehören Ihnen. Wir speichern, scannen oder analysieren Ihre Dateien nicht."
+      },
+      "quality": {
+        "title": "Qualität gesichert",
+        "description": "Rigorose Tests gewährleisten Zuverlässigkeit und Leistung, auf die Sie sich verlassen können."
+      }
+    },
+    "cta": {
+      "title": "Bereit, sicher zu teilen?",
+      "description": "Schließen Sie sich Tausenden von Benutzern an, die ProximaShare für ihre Dateifreigabebedürfnisse vertrauen.",
+      "button": "Mit dem Teilen beginnen"
+    }
+  },
+  "features": {
+    "title": "Leistungsstarke Funktionen",
+    "subtitle": "Alles, was Sie für sicheres, effizientes Dateiteilen in einer schönen Plattform benötigen.",
+    "main": {
+      "security": {
+        "title": "Unternehmenssicherheit",
+        "description": "Ihre Dateien sind mit AES-256-Verschlüsselung geschützt, dem gleichen Standard, der von Banken und Regierungsbehörden verwendet wird."
+      },
+      "speed": {
+        "title": "Blitz-Performance",
+        "description": "Unser globales CDN und die optimierte Infrastruktur stellen sicher, dass Ihre Dateien mit maximaler Geschwindigkeit hoch- und heruntergeladen werden."
+      },
+      "global": {
+        "title": "Weltweiter Zugang",
+        "description": "Greifen Sie von überall auf der Welt auf Ihre geteilten Dateien zu mit unseren global verteilten Servern."
+      }
+    },
+    "detailed": {
+      "title": "Erweiterte Fähigkeiten",
+      "encryption": {
+        "title": "Ende-zu-Ende-Verschlüsselung",
+        "description": "Dateien werden auf Ihrem Gerät vor dem Upload verschlüsselt und bleiben bis zum Download verschlüsselt."
+      },
+      "download": {
+        "title": "Intelligente Download-Limits",
+        "description": "Kontrollieren Sie, wie oft Ihre Dateien für erhöhte Sicherheit heruntergeladen werden können."
+      },
+      "sharing": {
+        "title": "Flexibles Teilen",
+        "description": "Teilen Sie über direkte Links, E-Mail oder generieren Sie QR-Codes für einfachen mobilen Zugang."
+      },
+      "expiration": {
+        "title": "Auto-Ablauf",
+        "description": "Links laufen automatisch nach einer festgelegten Zeit oder Anzahl von Downloads ab."
+      },
+      "collaboration": {
+        "title": "Team-Zusammenarbeit",
+        "description": "Teilen Sie Dateien mit Teams und verfolgen Sie, wer auf Ihre Inhalte zugegriffen hat."
+      }
+    }
+  },
+  "privacy": {
+    "title": "Datenschutzrichtlinie",
+    "subtitle": "Ihre Privatsphäre ist unsere Priorität. Erfahren Sie, wie wir Ihre Daten mit vollständiger Transparenz schützen und handhaben.",
+    "principles": {
+      "protection": {
+        "title": "Datenschutz",
+        "description": "Wir implementieren branchenführende Sicherheitsmaßnahmen zum Schutz Ihrer persönlichen Informationen."
+      },
+      "transparency": {
+        "title": "Vollständige Transparenz",
+        "description": "Wir erklären klar, welche Daten wir sammeln, wie wir sie verwenden und mit wem wir sie teilen."
+      },
+      "security": {
+        "title": "Erweiterte Sicherheit",
+        "description": "Ihre Dateien sind verschlüsselt und sicher mit mehreren Schutzschichten gespeichert."
+      },
+      "deletion": {
+        "title": "Automatische Löschung",
+        "description": "Dateien werden nach Ablauf automatisch gelöscht ohne Wiederherstellungsmöglichkeit."
+      },
+      "minimal": {
+        "title": "Minimale Datensammlung",
+        "description": "Wir sammeln nur die minimalen Daten, die zur Bereitstellung unseres Dienstes erforderlich sind."
+      },
+      "compliance": {
+        "title": "Globale Compliance",
+        "description": "Wir entsprechen DSGVO, CCPA und anderen internationalen Datenschutzbestimmungen."
+      }
+    },
+    "policy": {
+      "dataCollection": {
+        "title": "Datensammlung",
+        "description": "Wir sammeln nur die minimalen Informationen, die zur Bereitstellung unseres Dateifreigabedienstes erforderlich sind:",
+        "item1": "Datei-Metadaten (Name, Größe, Typ) für die Upload-Verarbeitung",
+        "item2": "IP-Adresse für Sicherheit und Missbrauchsprävention",
+        "item3": "Browser-Informationen für Kompatibilität und Optimierung"
+      },
+      "dataUsage": {
+        "title": "Wie wir Ihre Daten verwenden",
+        "description": "Ihre Daten werden ausschließlich zur Bereitstellung und Verbesserung unseres Dateifreigabedienstes verwendet. Wir verkaufen, vermieten oder teilen niemals Ihre persönlichen Informationen mit Dritten für Marketingzwecke."
+      },
+      "dataRetention": {
+        "title": "Datenspeicherung",
+        "description": "Dateien werden automatisch nach 5 Minuten oder 3 Downloads gelöscht, je nachdem, was zuerst eintritt. Metadaten werden 30 Tage lang für Sicherheitszwecke aufbewahrt und dann dauerhaft gelöscht."
+      },
+      "userRights": {
+        "title": "Ihre Rechte",
+        "description": "Unter der DSGVO und anderen Datenschutzgesetzen haben Sie folgende Rechte:",
+        "right1": "Recht auf Zugang zu Ihren persönlichen Daten",
+        "right2": "Recht auf Berichtigung unrichtiger Daten",
+        "right3": "Recht auf Löschung (Recht auf Vergessenwerden)",
+        "right4": "Recht auf Datenübertragbarkeit"
+      }
+    },
+    "contact": {
+      "title": "Fragen zum Datenschutz?",
+      "description": "Wenn Sie Fragen zu unseren Datenschutzpraktiken haben, zögern Sie nicht, uns zu kontaktieren.",
+      "button": "Datenschutz-Team kontaktieren"
+    },
+    "cookies": {
+      "title": "Wir schätzen Ihre Privatsphäre",
+      "description": "Wir verwenden Cookies, um Ihre Erfahrung zu verbessern und unseren Traffic zu analysieren. Sie können Ihre Präferenzen unten anpassen.",
+      "acceptAll": "Alle akzeptieren",
+      "rejectAll": "Alle ablehnen",
+      "customize": "Anpassen",
+      "settings": "Cookie-Einstellungen",
+      "savePreferences": "Präferenzen speichern",
+      "types": {
+        "necessary": {
+          "title": "Notwendig",
+          "description": "Erforderlich für das ordnungsgemäße Funktionieren der Website. Kann nicht deaktiviert werden."
+        },
+        "analytics": {
+          "title": "Analytik",
+          "description": "Helfen uns zu verstehen, wie Besucher mit unserer Website interagieren."
+        },
+        "marketing": {
+          "title": "Marketing",
+          "description": "Verwendet, um personalisierte Inhalte und Werbung zu liefern."
+        },
+        "functional": {
+          "title": "Funktional",
+          "description": "Ermöglichen erweiterte Funktionalität und Personalisierung."
+        }
+      }
+    }
+  },
+  "preloader": {
+    "welcome": "Willkommen bei ProximaShare"
+  }
+}
