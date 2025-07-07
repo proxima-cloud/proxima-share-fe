@@ -1,125 +1,128 @@
-import React, { useState } from 'react';
-import { motion } from 'framer-motion';
-import { Share2, Menu, X } from 'lucide-react';
+"use client";
+
+import Link from 'next/link';
+import { Share2, Languages, Menu } from 'lucide-react';
+import { ThemeToggle } from '@/components/feature/theme-toggle';
 import { useTranslation } from 'react-i18next';
-import { Link } from 'react-router-dom';
-import { ThemeToggle } from '../ui/ThemeToggle';
-import { LanguageSelector } from '../ui/LanguageSelector';
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import { Button } from '@/components/ui/button';
+import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 
-// Define animation variants for reusability
-const logoPulse = {
-  animate: { scale: [1, 1.2, 1] },
-  transition: { duration: 2, repeat: 3 }, // Limited repeat for performance
-};
 
-const headerSlide = {
-  initial: { y: -100 },
-  animate: { y: 0 },
-  transition: { duration: 0.6, ease: 'easeOut' },
-};
+export default function Header() {
+  const { t, i18n } = useTranslation();
 
-const navHover = {
-  whileHover: { y: -2 },
-  transition: { type: 'spring', stiffness: 300 },
-};
+  const changeLanguage = (lng: string) => {
+    i18n.changeLanguage(lng);
+  };
+  
+  const navLinks = (
+    <>
+      <Link href="/about" className="block px-3 py-2 rounded-lg text-muted-foreground transition-colors hover:text-primary hover:bg-muted/50">
+        {t('header.about')}
+      </Link>
+      <Link href="/terms" className="block px-3 py-2 rounded-lg text-muted-foreground transition-colors hover:text-primary hover:bg-muted/50">
+        {t('footer.terms')}
+      </Link>
+      <Link href="/privacy" className="block px-3 py-2 rounded-lg text-muted-foreground transition-colors hover:text-primary hover:bg-muted/50">
+        {t('header.privacy')}
+      </Link>
+    </>
+  );
 
-// Navigation link styles
-const navLinkClass = 'text-neutral-700 dark:text-neutral-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors';
-
-// Navigation items configuration
-const navItems = [
-  { href: '/', labelKey: 'nav.home', fallback: 'Home' },
-  { href: '/about', labelKey: 'nav.about', fallback: 'About' },
-  { href: '/features', labelKey: 'nav.features', fallback: 'Features' },
-  { href: '/privacy', labelKey: 'nav.privacy', fallback: 'Privacy' },
-];
-
-export const Header: React.FC = () => {
-  const { t } = useTranslation();
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const actionButtons = (
+     <>
+        <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Button variant="ghost" size="icon">
+                <Languages />
+                <span className="sr-only">{t('header.language')}</span>
+              </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="end">
+              <DropdownMenuItem onClick={() => changeLanguage('en')}>
+                English
+              </DropdownMenuItem>
+              <DropdownMenuItem onClick={() => changeLanguage('es')}>
+                Español
+              </DropdownMenuItem>
+              <DropdownMenuItem onClick={() => changeLanguage('fr')}>
+                Français
+              </DropdownMenuItem>
+              <DropdownMenuItem onClick={() => changeLanguage('de')}>
+                Deutsch
+              </DropdownMenuItem>
+              <DropdownMenuItem onClick={() => changeLanguage('hi')}>
+                हिन्दी
+              </DropdownMenuItem>
+              <DropdownMenuItem onClick={() => changeLanguage('pt')}>
+                Português
+              </DropdownMenuItem>
+              <DropdownMenuItem onClick={() => changeLanguage('ja')}>
+                日本語
+              </DropdownMenuItem>
+              <DropdownMenuItem onClick={() => changeLanguage('zh')}>
+                中文 (简体)
+              </DropdownMenuItem>
+              <DropdownMenuItem onClick={() => changeLanguage('ru')}>
+                Русский
+              </DropdownMenuItem>
+              <DropdownMenuItem onClick={() => changeLanguage('ar')}>
+                العربية
+              </DropdownMenuItem>
+              <DropdownMenuItem onClick={() => changeLanguage('it')}>
+                Italiano
+              </DropdownMenuItem>
+              <DropdownMenuItem onClick={() => changeLanguage('ko')}>
+                한국어
+              </DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
+          <ThemeToggle />
+     </>
+  );
 
   return (
-    <motion.header
-      className="fixed top-0 left-0 right-0 z-40 backdrop-blur-md bg-white/80 dark:bg-neutral-900/80 border-b border-neutral-200/50 dark:border-neutral-700/50"
-      {...headerSlide}
-    >
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
-          {/* Logo Section */}
-          <motion.div
-            className="flex items-center space-x-3"
-            whileHover={{ scale: 1.05 }}
-            transition={{ type: 'spring', stiffness: 300 }}
-          >
-            <Link to="/" aria-label="ProximaShare Home">
-              <div className="relative">
-                <Share2 className="w-8 h-8 text-primary-600 dark:text-primary-400" />
-                <motion.div
-                  className="absolute inset-0 w-8 h-8 rounded-full bg-primary-500/20"
-                  {...logoPulse}
-                />
-              </div>
+    <header className="sticky top-0 z-50 w-full border-b bg-background/75 backdrop-blur-sm supports-[backdrop-filter]:bg-background/60">
+      <div className="container flex h-16 items-center justify-between px-4 md:px-6">
+        <div className="flex items-center">
+            <Link href="/" className="flex items-center space-x-2">
+                <Share2 className="h-6 w-6 text-primary" />
+                <span className="font-bold hidden sm:inline-block">ProximaShare</span>
             </Link>
-            <span className="text-xl font-display font-bold bg-gradient-to-r from-primary-600 to-secondary-600 bg-clip-text text-transparent">
-              ProximaShare
-            </span>
-          </motion.div>
-
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-8">
-            {navItems.map((item) => (
-              <motion.div key={item.href} {...navHover}>
-                <Link
-                  to={item.href}
-                  className={navLinkClass}
-                  aria-label={t(item.labelKey, item.fallback)}
-                >
-                  {t(item.labelKey, item.fallback)}
-                </Link>
-              </motion.div>
-            ))}
-          </nav>
-
-          {/* Mobile Menu Button */}
-          <button
-            className="md:hidden text-neutral-700 dark:text-neutral-300"
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
-          >
-            {isMobileMenuOpen ? (
-              <X className="w-6 h-6" />
-            ) : (
-              <Menu className="w-6 h-6" />
-            )}
-          </button>
-
-          {/* Theme and Language Selectors */}
-          <div className="flex items-center space-x-4">
-            <LanguageSelector />
-            <ThemeToggle />
-          </div>
         </div>
 
-        {/* Mobile Navigation */}
-        <motion.nav
-          className={`md:hidden ${isMobileMenuOpen ? 'block' : 'hidden'} bg-white dark:bg-neutral-900 p-4`}
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: isMobileMenuOpen ? 1 : 0, y: isMobileMenuOpen ? 0 : -20 }}
-          transition={{ duration: 0.3 }}
-        >
-          {navItems.map((item) => (
-            <Link
-              key={item.href}
-              to={item.href}
-              className="block py-2 text-neutral-700 dark:text-neutral-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
-              onClick={() => setIsMobileMenuOpen(false)}
-              aria-label={t(item.labelKey, item.fallback)}
-            >
-              {t(item.labelKey, item.fallback)}
-            </Link>
-          ))}
-        </motion.nav>
+        <nav className="hidden md:flex items-center gap-6 text-sm font-medium">
+          {navLinks}
+        </nav>
+
+        <div className="flex items-center gap-2">
+            <div className="hidden md:flex">{actionButtons}</div>
+
+            <div className="md:hidden">
+                <Sheet>
+                    <SheetTrigger asChild>
+                        <Button variant="ghost" size="icon">
+                            <Menu className="h-6 w-6" />
+                            <span className="sr-only">Open menu</span>
+                        </Button>
+                    </SheetTrigger>
+                    <SheetContent side="right" className="w-[240px]">
+                        <div className="flex flex-col gap-4 p-4">
+                            <div className="flex flex-col gap-2">
+                                {navLinks}
+                            </div>
+                        </div>
+                    </SheetContent>
+                </Sheet>
+            </div>
+        </div>
       </div>
-    </motion.header>
+    </header>
   );
-};
+}
