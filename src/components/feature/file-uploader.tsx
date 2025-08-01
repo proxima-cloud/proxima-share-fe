@@ -210,8 +210,7 @@ export default function FileUploader() {
         if (xhr.readyState === XMLHttpRequest.DONE) {
           if (xhr.status >= 200 && xhr.status < 300) {
             const response = JSON.parse(xhr.responseText);
-            const name = encodeURIComponent(file.name);
-            const downloadPageUrl = `${window.location.origin}/download/${response.uuid}?name=${name}`;
+            const downloadPageUrl = `${window.location.origin}/download/${response.uuid}`;
             resolve({
               fileName: file.name,
               uuid: response.uuid,

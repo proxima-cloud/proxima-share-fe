@@ -19,22 +19,22 @@ import {
     Download,
     Link as LinkIcon,
 } from "lucide-react";
-import { useSearchParams } from "next/navigation";
+import { useTranslation } from "react-i18next";
 import { useState } from "react";
 
 export default function DownloadUI({ uuid }: { uuid: string }) {
-    const searchParams = useSearchParams();
-    const fileName = searchParams.get("name");
-    const downloadUrl = `${process.env.NEXT_PUBLIC_API_BASE_URL}/api/files/download/${uuid}`;
+    const { t } = useTranslation();
+    const downloadUrl = uuid ? `${process.env.NEXT_PUBLIC_API_BASE_URL}/api/files/download/${uuid}` : "";
     const [copied, setCopied] = useState(false);
     const { toast } = useToast();
 
     const handleCopy = () => {
+        if (!uuid) return;
         navigator.clipboard.writeText(uuid).then(() => {
             setCopied(true);
             toast({
-                title: "Copied!",
-                description: "File ID copied to clipboard.",
+                title: t('uploader.toast.copied.title'),
+                description: t('download.toast.copied.description'),
             });
             setTimeout(() => setCopied(false), 3000);
         });
@@ -45,15 +45,15 @@ export default function DownloadUI({ uuid }: { uuid: string }) {
             <Card className="w-full max-w-md shadow-lg">
                 <CardHeader>
                     <CardTitle className="text-2xl font-bold text-center">
-                        Your File is Ready
+                        {t('download.title')}
                     </CardTitle>
                     <CardDescription className="text-center truncate px-4">
-                        {fileName || "File ready to download"}
+                        {t('download.description')}
                     </CardDescription>
                 </CardHeader>
                 <CardContent className="space-y-4">
                     <div className="space-y-2">
-                        <Label htmlFor="uuid-input">File ID</Label>
+                        <Label htmlFor="uuid-input">{t('download.fileId')}</Label>
                         <div className="relative">
                             <LinkIcon className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
                             <Input
@@ -61,31 +61,36 @@ export default function DownloadUI({ uuid }: { uuid: string }) {
                                 value={uuid}
                                 readOnly
                                 className="pl-10 pr-10"
+                                placeholder={uuid ? undefined : "Enter file ID..."}
                             />
-                            <Button
-                                size="icon"
-                                variant="ghost"
-                                className="absolute right-1 top-1/2 -translate-y-1/2 h-8 w-8"
-                                onClick={handleCopy}
-                            >
-                                {copied ? (
-                                    <Check className="h-4 w-4 text-success" />
-                                ) : (
-                                    <Copy className="h-4 w-4" />
-                                )}
-                            </Button>
+                            {uuid && (
+                                <Button
+                                    size="icon"
+                                    variant="ghost"
+                                    className="absolute right-1 top-1/2 -translate-y-1/2 h-8 w-8"
+                                    onClick={handleCopy}
+                                >
+                                    {copied ? (
+                                        <Check className="h-4 w-4 text-success" />
+                                    ) : (
+                                        <Copy className="h-4 w-4" />
+                                    )}
+                                </Button>
+                            )}
                         </div>
                     </div>
-                    <Button asChild className="w-full">
-                        <a href={downloadUrl} target="_blank" rel="noopener noreferrer">
-                            <Download className="mr-2 h-4 w-4" />
-                            Download File
-                        </a>
-                    </Button>
+                    {uuid && downloadUrl && (
+                        <Button asChild className="w-full">
+                            <a href={downloadUrl} target="_blank" rel="noopener noreferrer">
+                                <Download className="mr-2 h-4 w-4" />
+                                {t('download.downloadButton')}
+                            </a>
+                        </Button>
+                    )}
                 </CardContent>
                 <CardFooter>
                     <p className="text-xs text-muted-foreground text-center w-full">
-                        The download will start in a new tab.
+                        {uuid ? t('download.newTab') : t('download.expiration')}
                     </p>
                 </CardFooter>
             </Card>

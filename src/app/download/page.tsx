@@ -3,20 +3,10 @@ import { Loader2 } from "lucide-react";
 import type { Metadata } from "next";
 import { Suspense } from "react";
 
-type DownloadPageProps = {
-  params: {
-    uuid: string;
-  };
+export const metadata: Metadata = {
+  title: "Download File | ProximaShare",
+  description: "Download your shared file from ProximaShare",
 };
-
-export async function generateMetadata({
-  params,
-}: DownloadPageProps): Promise<Metadata> {
-  return {
-    title: `Download File | ProximaShare`,
-    description: `Download your file with ID: ${params.uuid}`,
-  };
-}
 
 const LoadingSpinner = () => (
   <div className="flex flex-col items-center justify-center h-full gap-4">
@@ -25,11 +15,10 @@ const LoadingSpinner = () => (
   </div>
 );
 
-export default async function DownloadPage({ params }: DownloadPageProps) {
-  const { uuid } = params;
+export default function DownloadPage() {
   return (
     <Suspense fallback={<LoadingSpinner />}>
-      <DownloadUI uuid={uuid} />
+      <DownloadUI uuid="" />
     </Suspense>
   );
 }

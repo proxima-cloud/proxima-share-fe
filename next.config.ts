@@ -1,7 +1,7 @@
 import type { NextConfig } from "next";
 
-const apiUrlString = process.env.NEXT_PUBLIC_API_BASE_URL || "https://proximacloud.ddns.net:8080";
-const apiUrl = new URL(apiUrlString);
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL || "http://proximacloud.ddns.net:8080";
+const apiUrl = new URL(API_BASE_URL);
 
 
 const nextConfig: NextConfig = {
@@ -15,7 +15,7 @@ const nextConfig: NextConfig = {
   images: {
     remotePatterns: [
       {
-        protocol: apiUrl.protocol.replace(":", ""),
+        protocol: apiUrl.protocol.replace(":", "") as 'http' | 'https',
         hostname: apiUrl.hostname,
         port: apiUrl.port,
         pathname: "/api/files/download/**",

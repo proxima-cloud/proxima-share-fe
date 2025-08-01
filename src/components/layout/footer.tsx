@@ -9,7 +9,7 @@ export default function Footer() {
 
   return (
     <footer className="border-t bg-background/75 backdrop-blur-sm supports-[backdrop-filter]:bg-background/60">
-      <div className="container flex flex-col items-center justify-between gap-4 px-4 py-8 md:h-24 md:flex-row md:px-6">
+      <div className="container flex flex-col items-center justify-between gap-4 px-4 py-8 md:h-24 md:flex-row md:px-6 m-auto">
         <p className="text-center text-sm text-muted-foreground md:text-left">
           © {currentYear} ProximaShare. {t('footer.rights')}
         </p>
