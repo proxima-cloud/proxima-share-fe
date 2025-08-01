@@ -243,11 +243,11 @@ export default function FileUploader() {
     if (files.length === 0) return;
 
     setIsUploading(true);
-    const initialProgress = new Map(files.map(f => [f.name, { progress: 0, status: 'uploading' as 'uploading' }]));
+    const initialProgress = new Map(files.map(f => [f.name, { progress: 0, status: 'uploading' as const }]));
     setUploadProgress(initialProgress);
     setUploadResults([]);
 
-    const results = await Promise.allSettled(files.map(file => uploadFile(file)));
+    const results = await Promise.allSettled(files.map(file => uploadFile(file) as Promise<UploadResult>));
 
     const successfulUploads: UploadResult[] = [];
     results.forEach((result, index) => {

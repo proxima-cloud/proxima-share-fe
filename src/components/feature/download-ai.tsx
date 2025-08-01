@@ -45,10 +45,10 @@ export default function DownloadUI({ uuid }: { uuid: string }) {
             <Card className="w-full max-w-md shadow-lg">
                 <CardHeader>
                     <CardTitle className="text-2xl font-bold text-center">
-                        {t('download.title')}
+                        { downloadUrl ? (t('download.title')) : 'Paste your file ID' }
                     </CardTitle>
                     <CardDescription className="text-center truncate px-4">
-                        {t('download.description')}
+                        { downloadUrl ? (t('download.description')) : ""}
                     </CardDescription>
                 </CardHeader>
                 <CardContent className="space-y-4">

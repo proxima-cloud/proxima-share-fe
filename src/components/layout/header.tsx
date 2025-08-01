@@ -23,6 +23,9 @@ export default function Header() {
   
   const navLinks = (
     <>
+      <Link href="/download" className="block px-3 py-2 rounded-lg text-muted-foreground transition-colors hover:text-primary hover:bg-muted/50">
+        {t('header.download')}
+      </Link>
       <Link href="/about" className="block px-3 py-2 rounded-lg text-muted-foreground transition-colors hover:text-primary hover:bg-muted/50">
         {t('header.about')}
       </Link>

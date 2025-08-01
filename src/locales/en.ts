@@ -2,6 +2,8 @@ export default {
   "header.about": "About",
   "header.privacy": "Privacy",
   "header.language": "Language",
+  "header.download": "Download",
+  "header.upload": "Upload",
   "footer.rights": "All rights reserved.",
   "footer.about": "About",
   "footer.privacy": "Privacy Policy",

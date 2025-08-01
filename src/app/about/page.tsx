@@ -3,8 +3,8 @@
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Share2, Zap, Shield } from 'lucide-react';
-import type { Metadata } from 'next';
-import Image from 'next/image';
+// import type { Metadata } from 'next';
+// import Image from 'next/image';
 import { useTranslation } from 'react-i18next';
 import { useEffect } from 'react';
 
@@ -61,27 +61,27 @@ export default function AboutPage() {
             <div className="flex flex-col items-center space-y-2">
                 <Avatar className="h-24 w-24">
                     <AvatarImage src="https://placehold.co/100x100.png" alt="Team member" data-ai-hint="person" />
-                    <AvatarFallback>AI</AvatarFallback>
-                </Avatar>
-                <h3 className="font-semibold">{t('about.team.member1.name')}</h3>
-                <p className="text-sm text-muted-foreground">{t('about.team.member1.role')}</p>
-            </div>
-             <div className="flex flex-col items-center space-y-2">
-                <Avatar className="h-24 w-24">
-                    <AvatarImage src="https://placehold.co/100x100.png" alt="Team member" data-ai-hint="person" />
                     <AvatarFallback>DV</AvatarFallback>
                 </Avatar>
-                <h3 className="font-semibold">{t('about.team.member2.name')}</h3>
-                <p className="text-sm text-muted-foreground">{t('about.team.member2.role')}</p>
+                <h3 className="font-semibold">Girish Sakore</h3>
+                <p className="text-sm text-muted-foreground">Co-Founder & Lead Engineer(Proxima Cloud)</p>
             </div>
-             <div className="flex flex-col items-center space-y-2">
+            <div className="flex flex-col items-center space-y-2">
+                <Avatar className="h-24 w-24">
+                    <AvatarImage src="https://placehold.co/100x100.png" alt="Team member" data-ai-hint="person" />
+                    <AvatarFallback>AI</AvatarFallback>
+                </Avatar>
+                <h3 className="font-semibold">Chandrakant Nagpure</h3>
+                <p className="text-sm text-muted-foreground">Co-Founder & Lead Design(Proxima Cloud)</p>
+            </div>
+             {/* <div className="flex flex-col items-center space-y-2">
                 <Avatar className="h-24 w-24">
                     <AvatarImage src="https://placehold.co/100x100.png" alt="Team member" data-ai-hint="person" />
                     <AvatarFallback>SD</AvatarFallback>
                 </Avatar>
                 <h3 className="font-semibold">{t('about.team.member3.name')}</h3>
                 <p className="text-sm text-muted-foreground">{t('about.team.member3.role')}</p>
-            </div>
+            </div> */}
         </div>
       </div>
     </div>
