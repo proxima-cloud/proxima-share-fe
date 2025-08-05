@@ -59,7 +59,6 @@ export default function DownloadUI({ uuid }: { uuid: string }) {
                             <Input
                                 id="uuid-input"
                                 value={uuid}
-                                readOnly
                                 className="pl-10 pr-10"
                                 placeholder={uuid ? undefined : "Enter file ID..."}
                             />
