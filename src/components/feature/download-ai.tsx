@@ -13,7 +13,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
-import { Check, Copy, Download, Link as LinkIcon } from "lucide-react";
+import { Check, Clipboard, Download, Link as LinkIcon } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { useState, useEffect } from "react";
 
@@ -21,7 +21,7 @@ export default function DownloadUI({ uuid: initialUuid }: { uuid?: string }) {
 	const { t } = useTranslation();
 	const [inputValue, setInputValue] = useState(initialUuid || "");
 	const [downloadUrl, setDownloadUrl] = useState("");
-	const [copied, setCopied] = useState(false);
+	const [pasted, setPasted] = useState(false);
 	const { toast } = useToast();
 
 	useEffect(() => {
@@ -36,15 +36,15 @@ export default function DownloadUI({ uuid: initialUuid }: { uuid?: string }) {
 		}
 	}, [inputValue]);
 
-	const handleCopy = () => {
-		if (!inputValue) return;
-		navigator.clipboard.writeText(inputValue).then(() => {
-			setCopied(true);
+	const handlePaste = () => {
+		navigator.clipboard.readText().then((text) => {
+			setInputValue(text);
+			setPasted(true);
 			toast({
-				title: t("uploader.toast.copied.title"),
-				description: t("download.toast.copied.description"),
+				title: t("download.toast.pasted.title"),
+				description: t("download.toast.pasted.description"),
 			});
-			setTimeout(() => setCopied(false), 3000);
+			setTimeout(() => setPasted(false), 3000);
 		});
 	};
 
@@ -71,20 +71,18 @@ export default function DownloadUI({ uuid: initialUuid }: { uuid?: string }) {
 								placeholder="Enter file ID..."
 								onChange={(e) => setInputValue(e.target.value)}
 							/>
-							{inputValue && (
-								<Button
-									size="icon"
-									variant="ghost"
-									className="absolute right-1 top-1/2 -translate-y-1/2 h-8 w-8"
-									onClick={handleCopy}
-								>
-									{copied ? (
-										<Check className="h-4 w-4 text-success" />
-									) : (
-										<Copy className="h-4 w-4" />
-									)}
-								</Button>
-							)}
+							<Button
+								size="icon"
+								variant="ghost"
+								className="absolute right-1 top-1/2 -translate-y-1/2 h-8 w-8"
+								onClick={handlePaste}
+							>
+								{pasted ? (
+									<Check className="h-4 w-4 text-success" />
+								) : (
+									<Clipboard className="h-4 w-4" />
+								)}
+							</Button>
 						</div>
 					</div>
 					{downloadUrl && (
