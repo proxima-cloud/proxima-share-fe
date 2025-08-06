@@ -13,64 +13,65 @@ import {
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
-import {
-	Check,
-	Copy,
-	Download,
-	Link as LinkIcon,
-} from "lucide-react";
+import { Check, Copy, Download, Link as LinkIcon } from "lucide-react";
 import { useTranslation } from "react-i18next";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
-export default function DownloadUI({ uuid }: { uuid: string }) {
+export default function DownloadUI({ uuid: initialUuid }: { uuid?: string }) {
 	const { t } = useTranslation();
-	const downloadUrl = uuid ? `${process.env.NEXT_PUBLIC_API_BASE_URL}/api/files/download/${uuid}` : "";
+	const [inputValue, setInputValue] = useState(initialUuid || "");
+	const [downloadUrl, setDownloadUrl] = useState("");
 	const [copied, setCopied] = useState(false);
-	const [validUUID, setvalidUUID] = useState(false);
 	const { toast } = useToast();
 
+	useEffect(() => {
+		const uuidRegex =
+			/^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
+		if (inputValue && uuidRegex.test(inputValue)) {
+			setDownloadUrl(
+				`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/files/download/${inputValue}`
+			);
+		} else {
+			setDownloadUrl("");
+		}
+	}, [inputValue]);
+
 	const handleCopy = () => {
-		if (!uuid) return;
-		navigator.clipboard.writeText(uuid).then(() => {
+		if (!inputValue) return;
+		navigator.clipboard.writeText(inputValue).then(() => {
 			setCopied(true);
 			toast({
-				title: t('uploader.toast.copied.title'),
-				description: t('download.toast.copied.description'),
+				title: t("uploader.toast.copied.title"),
+				description: t("download.toast.copied.description"),
 			});
 			setTimeout(() => setCopied(false), 3000);
 		});
 	};
-
-	const validateUuid = (input: string) => {
-		const uuidRegex = /^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
-		setvalidUUID(uuidRegex.test(input));
-		uuid = input;
-	}
 
 	return (
 		<div className="flex h-full w-full flex-col items-center justify-center gap-8 p-4">
 			<Card className="w-full max-w-md shadow-lg">
 				<CardHeader>
 					<CardTitle className="text-2xl font-bold text-center">
-						{downloadUrl ? (t('download.title')) : 'Paste your file ID'}
+						{downloadUrl ? t("download.title") : "Paste your file ID"}
 					</CardTitle>
 					<CardDescription className="text-center truncate px-4">
-						{downloadUrl ? (t('download.description')) : ""}
+						{downloadUrl ? t("download.description") : ""}
 					</CardDescription>
 				</CardHeader>
 				<CardContent className="space-y-4">
 					<div className="space-y-2">
-						<Label htmlFor="uuid-input">{t('download.fileId')}</Label>
+						<Label htmlFor="uuid-input">{t("download.fileId")}</Label>
 						<div className="relative">
 							<LinkIcon className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
 							<Input
 								id="uuid-input"
-								defaultValue={uuid || ""}
+								value={inputValue}
 								className="pl-10 pr-10"
-								placeholder={uuid ? undefined : "Enter file ID..."}
-								onChange={(e) => {validateUuid(e.target.value)}}
+								placeholder="Enter file ID..."
+								onChange={(e) => setInputValue(e.target.value)}
 							/>
-							{uuid && (
+							{inputValue && (
 								<Button
 									size="icon"
 									variant="ghost"
@@ -86,18 +87,18 @@ export default function DownloadUI({ uuid }: { uuid: string }) {
 							)}
 						</div>
 					</div>
-					{validUUID && downloadUrl && (
+					{downloadUrl && (
 						<Button asChild className="w-full">
 							<a href={downloadUrl} target="_blank" rel="noopener noreferrer">
 								<Download className="mr-2 h-4 w-4" />
-								{t('download.downloadButton')}
+								{t("download.downloadButton")}
 							</a>
 						</Button>
 					)}
 				</CardContent>
 				<CardFooter>
 					<p className="text-xs text-muted-foreground text-center w-full">
-						{uuid ? t('download.newTab') : t('download.expiration')}
+						{inputValue ? t("download.newTab") : t("download.expiration")}
 					</p>
 				</CardFooter>
 			</Card>
