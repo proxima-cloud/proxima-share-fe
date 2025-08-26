@@ -481,7 +481,7 @@ export default function FileUploader() {
       >
         <input type="file" ref={fileInputRef} onChange={handleFileChange} className="hidden" multiple />
         <UploadCloud className="h-12 w-12 text-muted-foreground" />
-        <p className="mt-4 font-semibold">{t('uploader.dragOrClick')}</p>
+        <h2 className="mt-4 font-semibold">{t('uploader.dragOrClick')}</h2>
         <p className="text-sm text-muted-foreground">{t('uploader.selectPrompt')}</p>
       </div>
     );
@@ -518,7 +518,7 @@ export default function FileUploader() {
   return (
     <Card className="w-full max-w-lg shadow-2xl">
       <CardHeader>
-        <CardTitle className="text-center text-3xl font-bold">{t('uploader.title')}</CardTitle>
+        <h1 className="text-center text-3xl font-bold">{t('uploader.title')}<br />{t('uploader.title2')}</h1>
         {uploadResults.length === 0 && <CardDescription className="text-center whitespace-pre-line">
             {t('uploader.description', { maxSize: MAX_FILE_SIZE_MB })}
         </CardDescription>}

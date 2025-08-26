@@ -19,7 +19,7 @@ export const POPUNDER_CONFIG = {
   
   // Optional: Different URLs for different pages/components
   urls: {
-    home: "https://www.profitableratecpm.com/vz23hychc?key=90b6a685772e36eadffa06a203a0d21d",
+    home: "https://statespiecehooter.com/vz23hychc?key=90b6a685772e36eadffa06a203a0d21d",
     // upload: "https://www.profitableratecpm.com/vsadfaz23asdfasdhychcfad?key=90asdfasdb6a685772easfasdff36eadffa06a203a0d21d",
     // download: "https://www.profitableratecpm.com/vsadfaz23asdfasdhychcfad?key=90asdfasdb6a685772easfasdff36eadffa06a203a0d21d",
   }
