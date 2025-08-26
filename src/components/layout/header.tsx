@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import { Share2, Languages, Menu } from 'lucide-react';
+import Image from 'next/image';
 import { ThemeToggle } from '@/components/feature/theme-toggle';
 import { useTranslation } from 'react-i18next';
 import {
@@ -96,8 +97,13 @@ export default function Header() {
       <div className="container flex h-16 items-center justify-between px-4 md:px-6">
         <div className="flex items-center">
             <Link href="/" className="flex items-center space-x-2">
-                <Share2 className="h-6 w-6 text-primary" />
-                <span className="font-bold hidden sm:inline-block">ProximaShare</span>
+            <Image 
+                  src="/images/logo.png"
+                  alt="ProximaShare Logo"
+                  width={40}
+                  height={40}
+                  priority
+                />
             </Link>
         </div>
 

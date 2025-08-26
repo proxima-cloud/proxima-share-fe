@@ -31,6 +31,8 @@ export default {
   "uploader.toast.uploadsComplete.description": "{{successCount}} of {{totalCount}} files uploaded successfully.",
   "uploader.toast.copied.title": "Copied!",
   "uploader.toast.copied.description": "Link copied to clipboard.",
+  "download.toast.pasted.title": "Pasted!",
+  "download.toast.pasted.description": "Text pasted from clipboard.",
   "download.title": "Your File is Ready",
   "download.description": "File ready to download",
   "download.fileId": "File ID",
