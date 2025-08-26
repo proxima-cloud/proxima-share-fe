@@ -518,10 +518,10 @@ export default function FileUploader() {
   return (
     <Card className="w-full max-w-lg shadow-2xl">
       <CardHeader>
-        <CardTitle className="text-center text-3xl font-bold">{t('uploader.title')}</CardTitle>
-        {uploadResults.length === 0 && <CardDescription className="text-center whitespace-pre-line">
+        <h1 className="text-center text-3xl font-bold">{t('uploader.title')}</h1>
+        {uploadResults.length === 0 && <h2 className="text-center whitespace-pre-line">
             {t('uploader.description', { maxSize: MAX_FILE_SIZE_MB })}
-        </CardDescription>}
+        </h2>}
       </CardHeader>
       <CardContent className="min-h-[250px] flex items-center justify-center p-4 sm:p-6">
         {renderContent()}
