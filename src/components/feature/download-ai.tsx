@@ -29,7 +29,7 @@ export default function DownloadUI({ uuid: initialUuid }: { uuid?: string }) {
 			/^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
 		if (inputValue && uuidRegex.test(inputValue)) {
 			setDownloadUrl(
-				`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/files/download/${inputValue}`
+				`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/public/files/download/${inputValue}`
 			);
 		} else {
 			setDownloadUrl("");

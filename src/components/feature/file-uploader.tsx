@@ -234,7 +234,7 @@ export default function FileUploader() {
         });
       });
 
-      xhr.open('POST', `${API_BASE_URL}/api/files/upload`, true);
+      xhr.open('POST', `${API_BASE_URL}/api/public/files/upload`, true);
       xhr.send(formData);
     });
   }, [t]);
@@ -307,7 +307,7 @@ export default function FileUploader() {
 
     try {
         await Promise.all(uploadResults.map(async (result) => {
-            const downloadUrl = `${API_BASE_URL}/api/files/download/${result.uuid}`;
+            const downloadUrl = `${API_BASE_URL}/api/public/files/download/${result.uuid}`;
             const response = await fetch(downloadUrl);
             if (!response.ok) {
                 throw new Error(`Failed to fetch file: ${result.fileName}`);

@@ -18,7 +18,7 @@ const nextConfig: NextConfig = {
         protocol: apiUrl.protocol.replace(":", "") as 'http' | 'https',
         hostname: apiUrl.hostname,
         port: apiUrl.port,
-        pathname: "/api/files/download/**",
+        pathname: "/api/public/files/download/**",
       }
     ],
   },

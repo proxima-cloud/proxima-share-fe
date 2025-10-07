@@ -2,10 +2,10 @@
 
 ## Core Features:
 
-- File Upload: File Upload: Allows users to upload files to the server using the `http://proximacloud.ddns.net:8080/api/files/upload` endpoint.
-- Download Link: Download Link Generation: Upon successful upload, generates a unique download URL (`http://proximacloud.ddns.net:8080/api/files/download/{uuid}`) using the UUID received in the response.
+- File Upload: File Upload: Allows users to upload files to the server using the `http://proximacloud.ddns.net:8080/api/public/files/upload` endpoint.
+- Download Link: Download Link Generation: Upon successful upload, generates a unique download URL (`http://proximacloud.ddns.net:8080/api/public/files/download/{uuid}`) using the UUID received in the response.
 - Shareable Link: Shareable Link: Provides a direct, copyable link to the download page URL for easy sharing.
-- Download Page: Download Page: Creates a dedicated download page where the download link is pre-filled and ready for the user to initiate the download from `http://proximacloud.ddns.net:8080/api/files/download/{uuid}`.
+- Download Page: Download Page: Creates a dedicated download page where the download link is pre-filled and ready for the user to initiate the download from `http://proximacloud.ddns.net:8080/api/public/files/download/{uuid}`.
 - Read-Only URL: Read-Only Input Field:  On the download page, the input field containing the download URL is set to read-only, ensuring users cannot modify the link.
 - Error Message: Error Handling: Displays a user-friendly message 'Something went wrong' when the upload API returns a 400 error.
 
