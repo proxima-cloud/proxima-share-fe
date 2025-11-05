@@ -5,6 +5,7 @@ import Header from '@/components/layout/header';
 import Footer from '@/components/layout/footer';
 import { ThemeProvider } from '@/components/feature/theme-provider';
 import I18nProvider from '@/components/feature/i18n-provider';
+import { AuthProvider } from '@/contexts/AuthContext';
 import { Inter } from 'next/font/google';
 import { cn } from '@/lib/utils';
 
@@ -47,18 +48,20 @@ export default function RootLayout({
         )}>
         <div className="fixed top-0 left-0 w-full h-full bg-gradient-to-br from-proxima-sky/30 to-proxima-salmon/30 dark:from-proxima-sky/20 dark:to-proxima-salmon/20 -z-10" />
         <I18nProvider>
-          <ThemeProvider
-              attribute="class"
-              defaultTheme="system"
-              enableSystem
-          >
-            <Header />
-            <main className="flex-1">
-              {children}
-            </main>
-            <Footer />
-            <Toaster />
-          </ThemeProvider>
+          <AuthProvider>
+            <ThemeProvider
+                attribute="class"
+                defaultTheme="system"
+                enableSystem
+            >
+              <Header />
+              <main className="flex-1">
+                {children}
+              </main>
+              <Footer />
+              <Toaster />
+            </ThemeProvider>
+          </AuthProvider>
         </I18nProvider>
       </body>
     </html>

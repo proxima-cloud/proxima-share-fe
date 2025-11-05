@@ -11,12 +11,22 @@ import { cn } from '@/lib/utils';
 import { Label } from '../ui/label';
 import { ScrollArea } from '../ui/scroll-area';
 import { useTranslation } from 'react-i18next';
+import { useAuth } from '@/contexts/AuthContext';
+import { useRouter } from 'next/navigation';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 import JSZip from 'jszip';
 
 const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL;
-const MAX_FILE_SIZE_MB = 2;
-const MAX_FILE_SIZE_BYTES = MAX_FILE_SIZE_MB * 1024 * 1024;
+
+if (!API_BASE_URL && typeof window !== 'undefined') {
+  console.error('NEXT_PUBLIC_API_BASE_URL is not set in environment variables');
+}
+// Upload limits: Public users have 10MB limit, authenticated users have higher/no limit
+const MAX_FILE_SIZE_MB_PUBLIC = 10;
+const MAX_FILE_SIZE_BYTES_PUBLIC = MAX_FILE_SIZE_MB_PUBLIC * 1024 * 1024;
+// Authenticated users can upload larger files (backend will validate)
+const MAX_FILE_SIZE_MB_AUTHENTICATED = 100; // Frontend check, backend may allow more
+const MAX_FILE_SIZE_BYTES_AUTHENTICATED = MAX_FILE_SIZE_MB_AUTHENTICATED * 1024 * 1024;
 
 type UploadResult = {
   fileName: string;
@@ -96,6 +106,8 @@ const ShareButtons = ({ url, text }: { url: string, text: string }) => {
 
 export default function FileUploader() {
   const { t } = useTranslation();
+  const { isAuthenticated, token } = useAuth();
+  const router = useRouter();
 
   const getErrorMessage = (status: number): string => {
     switch (status) {
@@ -147,8 +159,12 @@ export default function FileUploader() {
     const validFiles: File[] = [];
     const oversizedFiles: File[] = [];
 
+    // Use different limits based on authentication status
+    const maxSizeBytes = isAuthenticated ? MAX_FILE_SIZE_BYTES_AUTHENTICATED : MAX_FILE_SIZE_BYTES_PUBLIC;
+    const maxSizeMB = isAuthenticated ? MAX_FILE_SIZE_MB_AUTHENTICATED : MAX_FILE_SIZE_MB_PUBLIC;
+
     filesArray.forEach(file => {
-        if (file.size > MAX_FILE_SIZE_BYTES) {
+        if (file.size > maxSizeBytes) {
             oversizedFiles.push(file);
         } else {
             validFiles.push(file);
@@ -161,7 +177,7 @@ export default function FileUploader() {
             title: t('uploader.toast.fileTooLarge.title'),
             description: t('uploader.toast.fileTooLarge.description', {
                 files: oversizedFiles.map(f => f.name).join(', '),
-                maxSize: MAX_FILE_SIZE_MB
+                maxSize: maxSizeMB
             }),
         });
     }
@@ -217,11 +233,20 @@ export default function FileUploader() {
               downloadPageUrl,
             });
           } else {
-            reject({
-              status: xhr.status,
-              message: getErrorMessage(xhr.status),
-              fileName: file.name,
-            });
+            // Handle 401 (Unauthorized) - token expired or invalid
+            if (xhr.status === 401 && isAuthenticated) {
+              reject({
+                status: xhr.status,
+                message: 'Your session has expired. Please login again.',
+                fileName: file.name,
+              });
+            } else {
+              reject({
+                status: xhr.status,
+                message: getErrorMessage(xhr.status),
+                fileName: file.name,
+              });
+            }
           }
         }
       });
@@ -234,10 +259,16 @@ export default function FileUploader() {
         });
       });
 
-      xhr.open('POST', `${API_BASE_URL}/api/files/upload`, true);
+      xhr.open('POST', `${API_BASE_URL}/api/${isAuthenticated ? 'user' : 'public'}/files/upload`, true);
+      
+      // Add authorization header if authenticated
+      if (isAuthenticated && token) {
+        xhr.setRequestHeader('Authorization', `Bearer ${token}`);
+      }
+      
       xhr.send(formData);
     });
-  }, [t]);
+  }, [t, isAuthenticated, token]);
 
   const handleUpload = useCallback(async () => {
     if (files.length === 0) return;
@@ -250,13 +281,18 @@ export default function FileUploader() {
     const results = await Promise.allSettled(files.map(file => uploadFile(file) as Promise<UploadResult>));
 
     const successfulUploads: UploadResult[] = [];
+    let hasSessionExpired = false;
     results.forEach((result, index) => {
       const file = files[index];
       if (result.status === 'fulfilled') {
         successfulUploads.push(result.value);
         setUploadProgress(prev => new Map(prev).set(file.name, { progress: 100, status: 'success' }));
       } else {
-        const { message, fileName } = result.reason;
+        const { message, status, fileName } = result.reason;
+        // Check if session expired (401)
+        if (status === 401 && isAuthenticated) {
+          hasSessionExpired = true;
+        }
         toast({
           title: t('uploader.toast.uploadFailed.title', { fileName }),
           description: message,
@@ -266,24 +302,56 @@ export default function FileUploader() {
       }
     });
 
+    // Handle session expiration - redirect to login
+    if (hasSessionExpired && isAuthenticated) {
+      toast({
+        variant: 'destructive',
+        title: 'Session Expired',
+        description: 'Your session has expired. Please login again.',
+      });
+      logout();
+      router.push('/login');
+      return;
+    }
+
     setUploadResults(successfulUploads);
     setIsUploading(false);
     
     if (successfulUploads.length > 0 && successfulUploads.length === files.length) {
       toast({
         title: t('uploader.toast.allFilesUploaded.title'),
-        description: t('uploader.toast.allFilesUploaded.description', { count: successfulUploads.length }),
+        description: isAuthenticated 
+          ? `${t('uploader.toast.allFilesUploaded.description', { count: successfulUploads.length })} View your files in the dashboard.`
+          : t('uploader.toast.allFilesUploaded.description', { count: successfulUploads.length }),
+        action: isAuthenticated ? (
+          <Button
+            variant="outline"
+            size="sm"
+            onClick={() => router.push('/dashboard')}
+          >
+            Go to Dashboard
+          </Button>
+        ) : undefined,
       });
     } else if (successfulUploads.length > 0) {
        toast({
         title: t('uploader.toast.uploadsComplete.title'),
         description: t('uploader.toast.uploadsComplete.description', { successCount: successfulUploads.length, totalCount: files.length }),
+        action: isAuthenticated ? (
+          <Button
+            variant="outline"
+            size="sm"
+            onClick={() => router.push('/dashboard')}
+          >
+            Go to Dashboard
+          </Button>
+        ) : undefined,
       });
     }
     
     setFiles([]);
 
-  }, [files, toast, uploadFile, t]);
+  }, [files, toast, uploadFile, t, isAuthenticated, router]);
 
   const handleCopy = (url: string) => {
     navigator.clipboard.writeText(url).then(() => {
@@ -520,7 +588,7 @@ export default function FileUploader() {
       <CardHeader>
         <h1 className="text-center text-3xl font-bold">{t('uploader.title')}<br />{t('uploader.title2')}</h1>
         {uploadResults.length === 0 && <CardDescription className="text-center whitespace-pre-line">
-            {t('uploader.description', { maxSize: MAX_FILE_SIZE_MB })}
+            {t('uploader.description', { maxSize: isAuthenticated ? MAX_FILE_SIZE_MB_AUTHENTICATED : MAX_FILE_SIZE_MB_PUBLIC })}
         </CardDescription>}
       </CardHeader>
       <CardContent className="min-h-[250px] flex items-center justify-center p-4 sm:p-6">

@@ -1,25 +1,40 @@
 "use client";
 
+import { useState } from 'react';
 import Link from 'next/link';
-import { Share2, Languages, Menu } from 'lucide-react';
+import { Share2, Languages, Menu, User, LogOut } from 'lucide-react';
 import Image from 'next/image';
 import { ThemeToggle } from '@/components/feature/theme-toggle';
 import { useTranslation } from 'react-i18next';
+import { useAuth } from '@/contexts/AuthContext';
+import { useRouter } from 'next/navigation';
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
+  DropdownMenuSeparator,
 } from "@/components/ui/dropdown-menu";
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
+import RegisterDialog from '@/components/auth/RegisterDialog';
+import LoginDialog from '@/components/auth/LoginDialog';
 
 
 export default function Header() {
   const { t, i18n } = useTranslation();
+  const { isAuthenticated, user, logout } = useAuth();
+  const router = useRouter();
+  const [registerDialogOpen, setRegisterDialogOpen] = useState(false);
+  const [loginDialogOpen, setLoginDialogOpen] = useState(false);
 
   const changeLanguage = (lng: string) => {
     i18n.changeLanguage(lng);
+  };
+
+  const handleLogout = () => {
+    logout();
+    router.push('/');
   };
   
   const navLinks = (
@@ -88,6 +103,44 @@ export default function Header() {
             </DropdownMenuContent>
           </DropdownMenu>
           <ThemeToggle />
+          
+          {/* Authentication buttons */}
+          {isAuthenticated ? (
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button variant="ghost" size="icon">
+                  <User className="h-4 w-4" />
+                  <span className="sr-only">User menu</span>
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="end">
+                <div className="px-2 py-1.5 text-sm font-medium">
+                  {user?.username}
+                </div>
+                <DropdownMenuSeparator />
+                <DropdownMenuItem onClick={() => router.push('/dashboard')}>
+                  Dashboard
+                </DropdownMenuItem>
+                <DropdownMenuItem onClick={() => router.push('/profile')}>
+                  Profile
+                </DropdownMenuItem>
+                <DropdownMenuSeparator />
+                <DropdownMenuItem onClick={handleLogout}>
+                  <LogOut className="mr-2 h-4 w-4" />
+                  Logout
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
+          ) : (
+            <div className="flex items-center gap-2">
+              <Button variant="ghost" onClick={() => setLoginDialogOpen(true)}>
+                Login
+              </Button>
+              <Button onClick={() => setRegisterDialogOpen(true)}>
+                Register
+              </Button>
+            </div>
+          )}
      </>
   );
 
@@ -134,6 +187,22 @@ export default function Header() {
         </div>
       </div>
       </div>
+      <LoginDialog 
+        open={loginDialogOpen} 
+        onOpenChange={setLoginDialogOpen} 
+        onOpenRegister={() => {
+          setLoginDialogOpen(false);
+          setRegisterDialogOpen(true);
+        }}
+      />
+      <RegisterDialog 
+        open={registerDialogOpen} 
+        onOpenChange={setRegisterDialogOpen}
+        onOpenLogin={() => {
+          setRegisterDialogOpen(false);
+          setLoginDialogOpen(true);
+        }}
+      />
     </header>
   );
 }
