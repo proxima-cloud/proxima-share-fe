@@ -13,12 +13,14 @@ import {
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
+import { useAuth } from '@/contexts/AuthContext';
 import { Check, Clipboard, Download, Link as LinkIcon } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { useState, useEffect } from "react";
 
 export default function DownloadUI({ uuid: initialUuid }: { uuid?: string }) {
 	const { t } = useTranslation();
+	const { isAuthenticated, token } = useAuth();
 	const [inputValue, setInputValue] = useState(initialUuid || "");
 	const [downloadUrl, setDownloadUrl] = useState("");
 	const [pasted, setPasted] = useState(false);
@@ -29,12 +31,12 @@ export default function DownloadUI({ uuid: initialUuid }: { uuid?: string }) {
 			/^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
 		if (inputValue && uuidRegex.test(inputValue)) {
 			setDownloadUrl(
-				`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/files/download/${inputValue}`
+				`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/${isAuthenticated ? 'user' : 'public'}/files/download/${inputValue}`
 			);
 		} else {
 			setDownloadUrl("");
 		}
-	}, [inputValue]);
+	}, [inputValue, isAuthenticated]);
 
 	const handlePaste = () => {
 		navigator.clipboard.readText().then((text) => {
