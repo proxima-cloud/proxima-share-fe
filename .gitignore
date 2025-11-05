@@ -42,3 +42,6 @@ package-lock.json
 .env
 .env.local
 .env.example
+
+# Postman collections (reference only)
+*.postman_collection.json
