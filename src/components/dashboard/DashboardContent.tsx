@@ -108,33 +108,12 @@ export function DashboardContent() {
   );
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      {/* Header */}
-      <header className="bg-white shadow-sm border-b">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
-            <div className="flex items-center">
-              <h1 className="text-2xl font-bold text-gray-900">ProximaShare</h1>
-            </div>
-            <div className="flex items-center space-x-4">
-              <div className="flex items-center space-x-2">
-                <User className="h-5 w-5 text-gray-500" />
-                <span className="text-sm font-medium text-gray-700">{user?.username}</span>
-              </div>
-              <Button variant="outline" onClick={handleLogout}>
-                <LogOut className="h-4 w-4 mr-2" />
-                Logout
-              </Button>
-            </div>
-          </div>
-        </div>
-      </header>
-
-      {/* Main Content */}
+    <div className="min-h-screen">
+      {/* Section Header Content */}
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <div className="mb-8">
-          <h2 className="text-3xl font-bold text-gray-900">Welcome back, {user?.username}!</h2>
-          <p className="text-gray-600 mt-2">Manage your files and account settings.</p>
+        <div className="mb-8 border-b">
+          <h2 className="text-3xl font-bold">Welcome back, {user?.username}!</h2>
+          <p className="text-gray-500 mt-2">Manage your files and account settings.</p>
         </div>
 
         {/* Quick Actions */}
@@ -224,12 +203,12 @@ export function DashboardContent() {
                 {sortedFiles.map((file) => (
                   <div
                     key={file.uuid}
-                    className="flex items-center justify-between p-4 border rounded-lg hover:bg-gray-50 transition-colors"
+                    className="flex items-center justify-between p-4 border rounded-lg transition-colors"
                   >
                     <div className="flex items-center space-x-4 flex-1 min-w-0">
                       <FileText className="h-8 w-8 text-blue-500 flex-shrink-0" />
                       <div className="flex-1 min-w-0">
-                        <h3 className="font-medium text-gray-900 truncate">
+                        <h3 className="font-medium truncate">
                           {file.filename}
                         </h3>
                         <div className="flex items-center space-x-4 mt-1 text-sm text-gray-500">

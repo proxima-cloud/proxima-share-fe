@@ -90,6 +90,7 @@ export default function GoogleLogin({ onSuccess, redirectTo = '/dashboard' }: Go
           callback: handleGoogleCallback,
           auto_select: false,
           cancel_on_tap_outside: true,
+          use_fedcm_for_prompt: true,
         });
         
         isInitialized.current = true;
@@ -130,6 +131,7 @@ export default function GoogleLogin({ onSuccess, redirectTo = '/dashboard' }: Go
 
       // Use prompt to show the Google Sign-In prompt
       window.google.accounts.id.prompt((notification: any) => {
+        console.log("----------------------------------", notification);
         if (notification.isNotDisplayed()) {
           const reason = notification.getNotDisplayedReason();
           console.error('Google Sign-In not displayed:', reason);

@@ -1,4 +1,4 @@
-import DownloadUI from "@/components/feature/download-ai";
+import DownloadUI from "@/components/feature/download-ui";
 import { Loader2 } from "lucide-react";
 import type { Metadata } from "next";
 import { Suspense } from "react";
