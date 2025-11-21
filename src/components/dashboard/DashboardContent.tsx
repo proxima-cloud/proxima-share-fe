@@ -34,19 +34,13 @@ export function DashboardContent() {
   const { toast } = useToast();
   const [files, setFiles] = useState<UserFile[]>([]);
   const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    if (token) {
-      fetchUserFiles();
-    }
-  }, [fetchUserFiles, token]);
-
+  
   const fetchUserFiles = useCallback(async () => {
     if (!token || !API_BASE_URL) {
       setIsLoading(false);
       return;
     }
-
+    
     try {
       setIsLoading(true);
       const response = await fetch(`${API_BASE_URL}/api/user/files`, {
@@ -56,7 +50,7 @@ export function DashboardContent() {
           'Content-Type': 'application/json',
         },
       });
-
+      
       if (!response.ok) {
         // Handle 401 (Unauthorized) - token expired or invalid
         if (response.status === 401) {
@@ -85,7 +79,13 @@ export function DashboardContent() {
       setIsLoading(false);
     }
   }, [token, logout, router, toast]);
-
+  
+    useEffect(() => {
+      if (token) {
+        fetchUserFiles();
+      }
+    }, [fetchUserFiles, token]);
+  
   const formatFileSize = (bytes: number): string => {
     if (bytes === 0) return '0 Bytes';
     const k = 1024;
