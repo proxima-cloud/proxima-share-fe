@@ -1,0 +1,6 @@
+name = "proxima-share"
+compatibility_date = "2025-11-23"
+compatibility_flags = ["nodejs_compat"]
+
+[observability]
+enabled = true
